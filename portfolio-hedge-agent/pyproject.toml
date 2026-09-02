@@ -1,0 +1,23 @@
+[project]
+name = "portfolio-hedge-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hajuanas92-code", email = "hajuanas92@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "alpaca-mcp-server>=2.3.0",
+    "groq>=1.7.0",
+    "mcp>=2.1.1",
+    "python-dotenv>=1.2.3",
+    "streamlit>=1.63.0",
+]
+
+[project.scripts]
+portfolio-hedge-agent = "portfolio_hedge_agent:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
