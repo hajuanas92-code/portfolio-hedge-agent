@@ -40,10 +40,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PARENT_DIR = os.path.dirname(BASE_DIR)
-DEFAULT_SERVER_PATH = os.path.join(PARENT_DIR, "alpaca-mcp-server")
-LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR") or DEFAULT_SERVER_PATH
+
+LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR","") 
 print(f"Target Server Path resolved dynamically to: {LOCAL_ALPACA_MCP_SERVER_DIR}")
 
 
