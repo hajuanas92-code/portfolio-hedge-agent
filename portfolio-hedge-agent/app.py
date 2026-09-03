@@ -186,7 +186,7 @@ for f in st.session_state.flagged:
 
     if symbol in st.session_state.hedge_data:
         data = st.session_state.hedge_data[symbol]
-        st.write(data["recommendation"])
+        st.write(data["recommendation"].replace("$", "\\$"))
 
         col_a, col_b = st.columns(2)
         with col_a:
