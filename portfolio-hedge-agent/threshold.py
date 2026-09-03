@@ -9,8 +9,7 @@ concentration_pct) plus a rule like:
 ...and asks the LLM to decide which positions are flagged and why,
 returning strict JSON so the rest of our pipeline can use it programmatically.
 
-Run:
-    uv run step2_threshold.py
+
 """
 
 import json, os
@@ -84,7 +83,7 @@ def apply_threshold_rule(positions: list[dict], rule_text: str) -> dict:
 
 
 if __name__ == "__main__":
-    # --- Test data (replace with real output from step1_pos.py once you have a filled position) ---
+    # --- Test data ---
     test_positions = [
         {"symbol": "AAPL", "qty": "5", "cost_basis": 950.00, "market_value": 862.50,
          "drawdown_pct": -9.21, "concentration_pct": 0.86},

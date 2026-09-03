@@ -3,14 +3,16 @@ Step 1: Connect to alpaca-mcp-server as an MCP client
 and list every tool it exposes, with its exact name and description.
 """
 
-import asyncio
+import asyncio, os
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+from dotenv import load_dotenv
 
-# --- EDIT THESE THREE VALUES ---
-ALPACA_MCP_SERVER_DIR = r"C:\Users\anas\Desktop\Alpaca Agent\alpaca-mcp-server"
-ALPACA_API_KEY = "PK2SU6LCX7DIP5SXDT3YY7TXJ4"
-ALPACA_SECRET_KEY = "9AfVFnKyMZRDGgdWNESVPjzpfPZNTa5jTXHihtPzrps3"
+load_dotenv()
+
+ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR") 
+ALPACA_API_KEY = os.getenv("ALPACA_API_KEY")
+ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 # --------------------------------
 
 async def main():

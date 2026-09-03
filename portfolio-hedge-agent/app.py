@@ -47,7 +47,6 @@ print(f"Target Server Path resolved dynamically to: {LOCAL_ALPACA_MCP_SERVER_DIR
 
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY") 
-#LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR", "")
 
 st.set_page_config(page_title="Portfolio Hedging Agent", layout="wide")
 

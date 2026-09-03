@@ -8,9 +8,6 @@ order to buy those puts, opening a new long put position.
 This function is meant to be called AFTER the approval gate (step 5) -
 only when the user has explicitly typed "yes".
 
-Run standalone for testing:
-    uv run step6_execute.py
-(will prompt for a symbol/contract/qty to test with)
 """
 
 import asyncio, os
@@ -21,8 +18,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# --- EDIT THESE ---
-ALPACA_MCP_SERVER_DIR = r"C:\Users\anas\Desktop\Alpaca Agent\alpaca-mcp-server"
+ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR") 
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY")
 # -------------------

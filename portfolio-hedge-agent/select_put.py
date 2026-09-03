@@ -10,8 +10,6 @@ Logic:
   4. Pull the option chain for puts on that symbol, then pick the contract
      whose strike and expiration are closest to those targets.
 
-Run:
-    uv run step3_select_put.py
 """
 
 import asyncio,os
@@ -23,7 +21,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 # --- EDIT THESE ---
-ALPACA_MCP_SERVER_DIR = r"C:\Users\anas\Desktop\Alpaca Agent\alpaca-mcp-server"
+ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR","") 
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY")
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 # -------------------

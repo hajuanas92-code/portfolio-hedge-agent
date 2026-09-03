@@ -15,8 +15,6 @@ Then asks the LLM to explain the recommendation in clear, plain language -
 the kind of explanation a human would actually want to read before approving
 a trade.
 
-Run:
-    uv run step4_recommendation.py
 """
 
 import math, os
@@ -99,7 +97,7 @@ Cost as % of position value: {cost_pct_of_position}%
 
 
 if __name__ == "__main__":
-    # --- Test data - replace with real output from steps 1-3 once wired together ---
+    # --- Test data ----
     test_position = {
         "symbol": "AAPL",
         "qty": 250,

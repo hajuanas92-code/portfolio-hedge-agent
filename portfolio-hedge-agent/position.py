@@ -9,8 +9,6 @@ For each position, this computes:
 These two numbers are exactly what the risk-threshold logic (step 2) will
 compare against whatever rule the user types in chat later.
 
-Run:
-    uv run step1_positions.py
 """
 
 import asyncio, os
@@ -23,7 +21,7 @@ load_dotenv()
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY") 
 # --- EDIT THESE ---
-ALPACA_MCP_SERVER_DIR = r"C:\Users\anas\Desktop\Alpaca Agent\alpaca-mcp-server"
+ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR","") 
 
 # -------------------
 
