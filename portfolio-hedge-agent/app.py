@@ -34,9 +34,22 @@ from execute import execute_protective_put
 from log import log_hedge_attempt, LOG_FILE_PATH
 
 load_dotenv()
+
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.dirname(BASE_DIR)
+DEFAULT_SERVER_PATH = os.path.join(PARENT_DIR, "alpaca-mcp-server")
+LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR") or DEFAULT_SERVER_PATH
+print(f"Target Server Path resolved dynamically to: {LOCAL_ALPACA_MCP_SERVER_DIR}")
+
+
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY") 
-LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR", "")
+#LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR", "")
 
 st.set_page_config(page_title="Portfolio Hedging Agent", layout="wide")
 

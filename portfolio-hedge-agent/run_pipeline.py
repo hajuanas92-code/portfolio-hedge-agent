@@ -18,15 +18,21 @@ load_dotenv()
 
 ALPACA_SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 ALPACA_API_KEY = os.getenv("ALPACA_API_KEY") 
-# --- EDIT THESE ---
-ALPACA_MCP_SERVER_DIR = r"C:\Users\anas\Desktop\Alpaca Agent\alpaca-mcp-server"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PARENT_DIR = os.path.dirname(BASE_DIR)
+DEFAULT_SERVER_PATH = os.path.join(PARENT_DIR, "alpaca-mcp-server")
+LOCAL_ALPACA_MCP_SERVER_DIR = os.getenv("LOCAL_ALPACA_MCP_SERVER_DIR") or DEFAULT_SERVER_PATH
+print(f"Target Server Path resolved dynamically to: {LOCAL_ALPACA_MCP_SERVER_DIR}")
+
+
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL_NAME = "openai/gpt-oss-20b"  
 
 async def main():
     server_params = StdioServerParameters(
         command="uv",
-        args=["--directory", ALPACA_MCP_SERVER_DIR, "run", "alpaca-mcp-server"],
+        args=["--directory", LOCAL_ALPACA_MCP_SERVER_DIR, "run", "alpaca-mcp-server"],
         env={"ALPACA_API_KEY": ALPACA_API_KEY, "ALPACA_SECRET_KEY": ALPACA_SECRET_KEY},
     )
 
